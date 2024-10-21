@@ -1,27 +1,22 @@
-# Getting Started
+# REST
 
-### Reference Documentation
+### Create
+```bash
+$ curl -X POST -H "Content-Type: application/json" -d '{"firstName":"Sponge", "lastName":"Bob"}' http://localhost:8080/people
+```
 
-For further reference, please consider the following sections:
+### Read
+```bash
+$ curl -X GET http://localhost:8080/people     # 전체 조회
+$ curl -X GET http://localhost:8080/people/6   # 특정 조회
+```
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/3.3.4/gradle-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.3.4/gradle-plugin/packaging-oci-image.html)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Rest Repositories](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#howto.data-access.exposing-spring-data-repositories-as-rest)
+### Update
+```bash
+$ curl -X PUT -H "Content-Type: application/json" -d '{"firstName":"Patrick", "lastName":"Star"}' http://localhost:8080/people/6
+```
 
-### Guides
-
-The following guides illustrate how to use some features concretely:
-
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
-* [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/)
-* [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
-
-### Additional Links
-
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+### Delete
+```bash
+$ curl -X DELETE http://localhost:8080/people/6
+```
